@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CustomerService.ViewModel/1.0.0": {
+        "runtime": {
+          "CustomerService.ViewModel.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CustomerService.ViewModel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

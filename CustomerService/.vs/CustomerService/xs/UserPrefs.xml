@@ -1,0 +1,90 @@
+﻿<Properties StartupConfiguration="{ACF3EB11-FD6B-4573-80BF-9699DEAA6962}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomerService/Helpers/TokenValidator.cs">
+    <Files>
+      <File FileName="CustomerService/Program.cs" Line="68" Column="2" />
+      <File FileName="CustomerService/appsettings.Development.json" />
+      <File FileName="CustomerService/Controllers/AccountController.cs" />
+      <File FileName="CustomerService/Services/UserService.cs" />
+      <File FileName="CustomerService.DAL/Repositories/Interfaces/IUserRepository.cs" />
+      <File FileName="CustomerService.DAL/Repositories/UserRepository.cs" />
+      <File FileName="CustomerService.DAL/Models/User.cs" />
+      <File FileName="CustomerService.DAL/Models/Role.cs" />
+      <File FileName="CustomerService.DAL/Repositories/Interfaces/IRoleRepository.cs" />
+      <File FileName="CustomerService.DAL/Repositories/RoleRepository.cs" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/6.0.428/Microsoft.Common.CurrentVersion.targets" />
+      <File FileName="CustomerService/Helpers/TokenGeneretor.cs" />
+      <File FileName="CustomerService/Controllers/WeatherForecastController.cs" />
+      <File FileName="CustomerService/Models/AppSettings.cs" Line="4" Column="2" />
+      <File FileName="CustomerService/appsettings.json" />
+      <File FileName="CustomerService.ViewModel/UserViewModel.cs" />
+      <File FileName="CustomerService/Helpers/TokenRequest.cs" />
+      <File FileName="CustomerService/Models/LoginModel.cs" Line="16" Column="1" />
+      <File FileName="CustomerService.DAL/CustomerContext.cs" />
+      <File FileName="CustomerService.DAL/Models/UserRoleMapping.cs" />
+      <File FileName="CustomerService.DAL/DataSeeder.cs" />
+      <File FileName="CustomerService/Services/Interfaces/IUserService.cs" />
+      <File FileName="CustomerService/Mappings/CustomerProfile.cs" />
+      <File FileName="CustomerService/Properties/launchSettings.json" />
+      <File FileName="CustomerService/Models/TokenInfoModel.cs" />
+      <File FileName="CustomerService/Helpers/TokenValidator.cs" Line="39" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CustomerService" expanded="True">
+            <Node name="CustomerService" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="AutoMapper.Extensions.Microsoft.DependencyInjection" expanded="True">
+                    <Node name="Microsoft.Extensions.Options" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Helpers" expanded="True">
+                <Node name="TokenGeneretor.cs" selected="True" />
+              </Node>
+              <Node name="Mappings" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Interfaces" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+            <Node name="CustomerService.DAL" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Repositories" expanded="True">
+                <Node name="Interfaces" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="CustomerService.ViewModel" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>userService.IsValidUserName(loginSignUpModel.UserName)</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="63" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="44" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Services/UserService.cs" relfile="CustomerService/Services/UserService.cs" line="27" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/Repositories/UserRepository.cs" relfile="CustomerService.DAL/Repositories/UserRepository.cs" line="24" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="46" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/Repositories/UserRepository.cs" relfile="CustomerService.DAL/Repositories/UserRepository.cs" line="27" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Helpers/TokenGeneretor.cs" relfile="CustomerService/Helpers/TokenGeneretor.cs" line="20" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Helpers/TokenGeneretor.cs" relfile="CustomerService/Helpers/TokenGeneretor.cs" line="43" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="100" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Helpers/TokenValidator.cs" relfile="CustomerService/Helpers/TokenValidator.cs" line="19" column="1" />
+    <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="107" column="1" />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.CustomerService.Tests FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CustomerService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

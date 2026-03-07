@@ -1,0 +1,12 @@
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/bin/Debug/net6.0/CustomerService.ViewModel.deps.json
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/bin/Debug/net6.0/CustomerService.ViewModel.dll
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/bin/Debug/net6.0/CustomerService.ViewModel.pdb
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.csproj.AssemblyReference.cache
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.AssemblyInfoInputs.cache
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.AssemblyInfo.cs
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.csproj.CoreCompileInputs.cache
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.dll
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/refint/CustomerService.ViewModel.dll
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/CustomerService.ViewModel.pdb
+/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/obj/Debug/net6.0/ref/CustomerService.ViewModel.dll
