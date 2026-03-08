@@ -56,7 +56,7 @@ public class AccountControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-        Assert.Equal("User created as Customer John", okResult.Value);
+        Assert.Equal($"User created as {signup.Role} John", okResult.Value);
     }
 
     [Fact]

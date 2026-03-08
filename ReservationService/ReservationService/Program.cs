@@ -92,7 +92,10 @@ builder.Services.AddSingleton(typeof(ApiSettings), apiSettings);
 builder.Services.AddDbContext<ReservationContext>(options =>
     options.UseInMemoryDatabase("ReservationDB"));
 
-builder.Services.AddHttpClient<CustomerApiService>().AddHttpMessageHandler<TokenForwardingHandler>();
+
+builder.Services.AddScoped<ICustomerApiService, ReservationService.Services.CustomerApiService>();
+builder.Services.AddHttpClient<ICustomerApiService, CustomerApiService>().AddHttpMessageHandler<TokenForwardingHandler>();
+
 builder.Services.AddScoped<IReservationService, ReservationService.Services.ReservationService>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();

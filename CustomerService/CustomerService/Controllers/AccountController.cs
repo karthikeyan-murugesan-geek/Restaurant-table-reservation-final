@@ -47,12 +47,12 @@ namespace CustomerService.Controllers
             {
                 UserName = signUpModel.UserName,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(signUpModel.Password),
-                MobileNumber = signUpModel.MobileNumebr
+                MobileNumber = signUpModel.MobileNumebr ?? string.Empty
             };
 
             var user = await userService.CreateUser(userViewModel, signUpModel.Role);
 
-            return Ok($"User created as Customer {user.UserName}");
+            return Ok($"User created as {signUpModel.Role} {user.UserName}");
         }
         [AllowAnonymous]
         [HttpPost("login")]
