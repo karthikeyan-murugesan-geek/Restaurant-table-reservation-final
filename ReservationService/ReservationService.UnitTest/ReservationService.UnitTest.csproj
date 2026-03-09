@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReservationService.Core\ReservationService.Core.csproj" />
-    <ProjectReference Include="..\ReservationService\ReservationService.API.csproj" />
     <ProjectReference Include="..\ReservationService.DAL\ReservationService.Infrastructure.csproj" />
+    <ProjectReference Include="..\ReservationService.API\ReservationService.API.csproj" />
   </ItemGroup>
 </Project>

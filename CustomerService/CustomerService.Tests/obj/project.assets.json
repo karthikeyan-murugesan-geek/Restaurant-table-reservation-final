@@ -1585,6 +1585,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "BCrypt.Net-Next": "4.1.0",
           "CustomerService.Core": "1.0.0",
+          "CustomerService.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.36",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -4010,8 +4011,8 @@
     },
     "CustomerService.API/1.0.0": {
       "type": "project",
-      "path": "../CustomerService/CustomerService.API.csproj",
-      "msbuildProject": "../CustomerService/CustomerService.API.csproj"
+      "path": "../CustomerService.API/CustomerService.API.csproj",
+      "msbuildProject": "../CustomerService.API/CustomerService.API.csproj"
     },
     "CustomerService.Core/1.0.0": {
       "type": "project",
@@ -4020,14 +4021,15 @@
     },
     "CustomerService.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../CustomerService.DAL/CustomerService.Infrastructure.csproj",
-      "msbuildProject": "../CustomerService.DAL/CustomerService.Infrastructure.csproj"
+      "path": "../CustomerService.Infrastructure/CustomerService.Infrastructure.csproj",
+      "msbuildProject": "../CustomerService.Infrastructure/CustomerService.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "CustomerService.API >= 1.0.0",
       "CustomerService.Core >= 1.0.0",
+      "CustomerService.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Testing >= 6.0.36",
       "Microsoft.AspNetCore.TestHost >= 6.0.36",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
@@ -4061,11 +4063,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.API/CustomerService.API.csproj": {
+              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.API/CustomerService.API.csproj"
+            },
             "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Core/CustomerService.Core.csproj": {
               "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Core/CustomerService.Core.csproj"
             },
-            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.API.csproj": {
-              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.API.csproj"
+            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj": {
+              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj"
             }
           }
         }

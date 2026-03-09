@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj": {
-                "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj"
+              "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj": {
+                "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj"
               }
             }
           }
@@ -75,14 +75,14 @@
         }
       }
     },
-    "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj": {
+    "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj",
+        "projectUniqueName": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj",
         "projectName": "CustomerService.Infrastructure",
-        "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj",
+        "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj",
         "packagesPath": "/Users/sunanthakarthikeyan/.nuget/packages/",
-        "outputPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/obj/",
+        "outputPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sunanthakarthikeyan/.nuget/NuGet/NuGet.Config"

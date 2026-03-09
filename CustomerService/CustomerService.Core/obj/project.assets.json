@@ -745,8 +745,8 @@
     },
     "CustomerService.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../CustomerService.DAL/CustomerService.Infrastructure.csproj",
-      "msbuildProject": "../CustomerService.DAL/CustomerService.Infrastructure.csproj"
+      "path": "../CustomerService.Infrastructure/CustomerService.Infrastructure.csproj",
+      "msbuildProject": "../CustomerService.Infrastructure/CustomerService.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -782,8 +782,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj": {
-              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj"
+            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj": {
+              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj"
             }
           }
         }

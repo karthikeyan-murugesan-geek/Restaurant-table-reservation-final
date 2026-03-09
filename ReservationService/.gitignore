@@ -403,3 +403,10 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.log

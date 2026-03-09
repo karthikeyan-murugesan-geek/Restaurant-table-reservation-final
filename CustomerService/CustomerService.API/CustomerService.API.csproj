@@ -28,5 +28,8 @@
     <ProjectReference Include="..\CustomerService.Core\CustomerService.Core.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\CustomerService.Infrastructure\CustomerService.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

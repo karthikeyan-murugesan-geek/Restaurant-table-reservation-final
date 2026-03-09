@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vtf+h5QNgn16sLio/+G3SHRm54DmJHHcMirr1BgV8CZB7aRnG7wvjKToozXqr9NwguE3HzPt/9zrQGFpIuEcBA==",
+  "dgSpecHash": "sclEU6L0BJPuBoWP2Zvx0fchY8WZc3DnvPw1IaeNo55rUjY7+ovRunMQDxJfghbpHSU1PVwE2Or6bu3vLrhBFg==",
   "success": true,
-  "projectFilePath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj",
+  "projectFilePath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Infrastructure/CustomerService.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/sunanthakarthikeyan/.nuget/packages/microsoft.entityframeworkcore/6.0.36/microsoft.entityframeworkcore.6.0.36.nupkg.sha512",
     "/Users/sunanthakarthikeyan/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.36/microsoft.entityframeworkcore.abstractions.6.0.36.nupkg.sha512",

@@ -19,11 +19,11 @@
     <Folder Include="WrapperModels\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReservationService.DAL\ReservationService.Infrastructure.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.3.9" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReservationService.Infrastructure\ReservationService.Infrastructure.csproj" />
   </ItemGroup>
 </Project>
