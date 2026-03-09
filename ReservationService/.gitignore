@@ -410,3 +410,4 @@ obj/
 *.user
 *.suo
 *.log
+.DS_Store

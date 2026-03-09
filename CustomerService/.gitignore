@@ -407,6 +407,8 @@ ASALocalRun/
 bin/
 obj/
 .vs/
+vs/
 *.user
 *.suo
 *.log
+.DS_Store
