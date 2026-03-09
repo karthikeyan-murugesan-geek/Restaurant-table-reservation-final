@@ -2,9 +2,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using CustomerService.DAL.Models;
+using CustomerService.Infrastructure.Models;
 using CustomerService.Models;
-using CustomerService.ViewModel;
+using CustomerService.Core.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CustomerService.Helpers

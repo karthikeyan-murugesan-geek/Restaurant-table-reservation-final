@@ -5,11 +5,11 @@ using ReservationService.Services;
 using ReservationService.Models;
 using AutoMapper;
 using System;
-using ReservationService.DAL.Models;
-using ReservationService.DAL.Repositories.Interfaces;
-using ReservationService.ViewModel;
-using ReservationService.Services.Interfaces;
-using ReservationService.Mappings;
+using ReservationService.Infrastructure.Models;
+using ReservationService.Infrastructure.Repositories.Interfaces;
+using ReservationService.Core.Services.Interfaces;
+using ReservationService.Core.Mappings;
+using ReservationService.WrapperModels.Core;
 
 public class ReservationServiceTests
 {
@@ -39,7 +39,7 @@ public class ReservationServiceTests
     public async Task CreateReservationAsync_ReturnsSuccess_WhenAllValid()
     {
         // Arrange
-        var reservationVM = new ReservationViewModel
+        var reservationVM = new ReservationDto
         {
             ReservedByUserId = 1,
             TableID = 1,
@@ -83,7 +83,7 @@ public class ReservationServiceTests
     [Fact]
     public async Task CreateReservationAsync_ReturnsError_WhenCustomerDoesNotExist()
     {
-        var reservationVM = new ReservationViewModel { ReservedByUserId = 1, TableID = 1 };
+        var reservationVM = new ReservationDto { ReservedByUserId = 1, TableID = 1 };
 
         _customerServiceMock.Setup(c => c.CustomerExists(1)).ReturnsAsync(false);
 
@@ -96,7 +96,7 @@ public class ReservationServiceTests
     [Fact]
     public async Task CreateReservationAsync_ReturnsError_WhenTableDoesNotExist()
     {
-        var reservationVM = new ReservationViewModel { ReservedByUserId = 1, TableID = 1 };
+        var reservationVM = new ReservationDto { ReservedByUserId = 1, TableID = 1 };
 
         _customerServiceMock.Setup(c => c.CustomerExists(reservationVM.ReservedByUserId)).ReturnsAsync(true);
         _tableRepoMock.Setup(t => t.GetAsync(1)).ReturnsAsync((Table?)null);
@@ -110,7 +110,7 @@ public class ReservationServiceTests
     [Fact]
     public async Task CreateReservationAsync_ReturnsError_WhenGuestsExceedCapacity()
     {
-        var reservationVM = new ReservationViewModel { ReservedByUserId = 1, TableID = 1, GuestsCount = 5 };
+        var reservationVM = new ReservationDto { ReservedByUserId = 1, TableID = 1, GuestsCount = 5 };
         var table = new Table { ID = 1, Capacity = 4 };
 
         _customerServiceMock.Setup(c => c.CustomerExists(1)).ReturnsAsync(true);
@@ -125,7 +125,7 @@ public class ReservationServiceTests
     [Fact]
     public async Task CreateReservationAsync_ReturnsError_WhenTableAlreadyReserved()
     {
-        var reservationVM = new ReservationViewModel { ReservedByUserId = 1, TableID = 1, GuestsCount = 2, ReservationDate = "2026/03/07", TimeSlot = "10:00" };
+        var reservationVM = new ReservationDto { ReservedByUserId = 1, TableID = 1, GuestsCount = 2, ReservationDate = "2026/03/07", TimeSlot = "10:00" };
         var table = new Table { ID = 1, Capacity = 4 };
         var existingReservation = new Reservation();
 
@@ -146,7 +146,7 @@ public class ReservationServiceTests
         // Arrange
         var reservations = GetReservationMockData();
 
-        var mappedReservations = GetReservationViewModelMockData();
+        var mappedReservations = GetReservationDtoMockData();
 
         _reservationRepoMock.Setup(r => r.GetAllAsync(null, null))
             .ReturnsAsync(reservations);
@@ -166,7 +166,7 @@ public class ReservationServiceTests
         // Arrange
         var reservations = GetReservationMockData();
 
-        var mappedReservations = GetReservationViewModelMockData();
+        var mappedReservations = GetReservationDtoMockData();
 
         _reservationRepoMock.Setup(r => r.GetAllAsync(0, 2))
             .ReturnsAsync(reservations);
@@ -189,7 +189,7 @@ public class ReservationServiceTests
 
         var reservations = GetReservationMockData();
 
-        var mappedReservations = GetReservationViewModelMockData();
+        var mappedReservations = GetReservationDtoMockData();
 
         _reservationRepoMock
             .Setup(r => r.GetReservationsByDateSlotAsync(date, time, null, null))
@@ -212,7 +212,7 @@ public class ReservationServiceTests
 
         var reservations = GetReservationMockData();
 
-        var mappedReservations = GetReservationViewModelMockData();
+        var mappedReservations = GetReservationDtoMockData();
 
         _reservationRepoMock
             .Setup(r => r.GetReservationsByDateSlotAsync(date, time, 0, 2))
@@ -248,16 +248,16 @@ public class ReservationServiceTests
         };
     }
 
-    private List<ReservationViewModel> GetReservationViewModelMockData()
+    private List<ReservationDto> GetReservationDtoMockData()
     {
-        return new List<ReservationViewModel>
+        return new List<ReservationDto>
         {
-            new ReservationViewModel { ReservedByUserId = 1,
+            new ReservationDto { ReservedByUserId = 1,
             TableID = 1,
             GuestsCount = 2,
             ReservationDate = "2026/03/07",
             TimeSlot = "10:00"},
-            new ReservationViewModel { ReservedByUserId = 1,
+            new ReservationDto { ReservedByUserId = 1,
             TableID = 2,
             GuestsCount = 2,
             ReservationDate = "2026/03/07",

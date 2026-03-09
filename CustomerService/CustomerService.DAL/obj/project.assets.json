@@ -564,9 +564,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.DAL.csproj",
-      "projectName": "CustomerService.DAL",
-      "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.DAL.csproj",
+      "projectUniqueName": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj",
+      "projectName": "CustomerService.Infrastructure",
+      "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.Infrastructure.csproj",
       "packagesPath": "/Users/sunanthakarthikeyan/.nuget/packages/",
       "outputPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/obj/",
       "projectStyle": "PackageReference",

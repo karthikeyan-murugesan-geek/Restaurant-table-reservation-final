@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomerService.ViewModel\CustomerService.ViewModel.csproj" />
-    <ProjectReference Include="..\CustomerService\CustomerService.csproj" />
     <ProjectReference Include="..\CustomerService.DAL\CustomerService.DAL.csproj" />
+    <ProjectReference Include="..\CustomerService.Core\CustomerService.Core.csproj" />
+    <ProjectReference Include="..\CustomerService\CustomerService.API.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="xunit" Version="2.9.3" />

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VTlsR7Rvx9x472oohcy1sjTKjMRJrwdN7uYks12cAZPPe9WadQSDaNDLn+LUfsaxPZxl16mvsBjbd6qt0/KgnA==",
+  "dgSpecHash": "0qrDJLJvS/Pn8mWmWKW2Gv0SCXPtrSNJ6s4GAU6437JsssV6yXMhApFMiMtztUl9jut4xFHD1gCqXZ6PC0ddqQ==",
   "success": true,
-  "projectFilePath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.csproj",
+  "projectFilePath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.API.csproj",
   "expectedPackageFiles": [
     "/Users/sunanthakarthikeyan/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/sunanthakarthikeyan/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using CustomerService.DAL.Models;
+﻿using System.Security.Claims;
+using CustomerService.Core.Models;
 using CustomerService.Helpers;
 using CustomerService.Models;
 using CustomerService.Services.Interfaces;
-using CustomerService.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace CustomerService.Controllers
+namespace CustomerService.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -38,12 +28,12 @@ namespace CustomerService.Controllers
         
         [AllowAnonymous]
         [HttpPost("signup")]
-        public async Task<IActionResult> SignUp([FromBody] SignupModel signUpModel)
+        public async Task<IActionResult> SignUp([FromBody] SignupDto signUpModel)
         {
             if (await userService.IsValidUserName(signUpModel.UserName))
                 return BadRequest("Username already exists");
 
-            var userViewModel = new UserViewModel
+            var userViewModel = new UserDto
             {
                 UserName = signUpModel.UserName,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(signUpModel.Password),
@@ -56,7 +46,7 @@ namespace CustomerService.Controllers
         }
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             // Get user from DB
             var user = await userService.GetUserByUserName(model.UserName);
@@ -93,7 +83,7 @@ namespace CustomerService.Controllers
 
         [AllowAnonymous]
         [HttpPost("refreshAccessToken")]
-        public IActionResult refreshAccessToken([FromBody] TokenInfoModel tokenInfoModel)
+        public IActionResult refreshAccessToken([FromBody] TokenInfoDto tokenInfoModel)
         {
             // Get user from DB
             bool valid = tokenValidator.ValidateRefreshToken(tokenInfoModel.RefreshToken, out ClaimsPrincipal claimsPrincipal);

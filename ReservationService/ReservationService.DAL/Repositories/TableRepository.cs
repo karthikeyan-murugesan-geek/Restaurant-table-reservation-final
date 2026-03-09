@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using ReservationService.DAL.Models;
-using ReservationService.DAL.Repositories.Interfaces;
+using ReservationService.Infrastructure.Models;
+using ReservationService.Infrastructure.Repositories.Interfaces;
 
-namespace ReservationService.DAL.Repositories
+namespace ReservationService.Infrastructure.Repositories
 {
 	public class TableRepository : ITableRepository
     {

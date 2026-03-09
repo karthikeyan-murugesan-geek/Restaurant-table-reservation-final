@@ -1,7 +1,7 @@
 ﻿using System;
-using ReservationService.DAL.Models;
+using ReservationService.Infrastructure.Models;
 
-namespace ReservationService.DAL.Repositories.Interfaces
+namespace ReservationService.Infrastructure.Repositories.Interfaces
 {
 	public interface ITableRepository
 	{

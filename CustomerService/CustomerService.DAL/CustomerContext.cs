@@ -1,8 +1,8 @@
 ﻿using System;
-using CustomerService.DAL.Models;
+using CustomerService.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerService.DAL;
+namespace CustomerService.Infrastructure;
 public class CustomerContext : DbContext
 {
     public CustomerContext(DbContextOptions<CustomerContext> options)

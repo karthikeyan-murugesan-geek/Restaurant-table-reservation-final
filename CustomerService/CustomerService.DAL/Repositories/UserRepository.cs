@@ -1,9 +1,9 @@
 ﻿using System;
-using CustomerService.DAL.Models;
-using CustomerService.DAL.Repositories.Interfaces;
+using CustomerService.Infrastructure.Models;
+using CustomerService.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerService.DAL.Repositories
+namespace CustomerService.Infrastructure.Repositories
 {
 	public class UserRepository : IUserRepository
 	{

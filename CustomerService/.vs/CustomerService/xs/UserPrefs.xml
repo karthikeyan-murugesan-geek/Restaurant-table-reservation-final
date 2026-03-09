@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{ACF3EB11-FD6B-4573-80BF-9699DEAA6962}|Default">
+﻿<Properties StartupConfiguration="{ACF3EB11-FD6B-4573-80BF-9699DEAA6962}|CustomerService">
   <MonoDevelop.Ide.Workbench ActiveDocument="CustomerService/Helpers/TokenValidator.cs">
     <Files>
       <File FileName="CustomerService/Program.cs" Line="68" Column="2" />
@@ -69,6 +69,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.CustomerService.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="63" column="1" />
     <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="44" column="1" />
@@ -82,9 +83,8 @@
     <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Helpers/TokenValidator.cs" relfile="CustomerService/Helpers/TokenValidator.cs" line="19" column="1" />
     <Breakpoint file="/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/Controllers/AccountController.cs" relfile="CustomerService/Controllers/AccountController.cs" line="107" column="1" />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.CustomerService.Tests FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.CustomerService.Core FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.CustomerService PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

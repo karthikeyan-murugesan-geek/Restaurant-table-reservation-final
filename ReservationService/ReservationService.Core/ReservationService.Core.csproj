@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Mappings\" />
+    <None Remove="Models\" />
+    <None Remove="Services\" />
+    <None Remove="WrapperModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="WrapperModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReservationService.DAL\ReservationService.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.3.9" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+</Project>

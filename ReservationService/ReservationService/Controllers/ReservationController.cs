@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using ReservationService.DAL.Enum;
+using ReservationService.Core.WrapperModels;
 using ReservationService.Filters;
-using ReservationService.Services;
-using ReservationService.Services.Interfaces;
-using ReservationService.ViewModel;
-using ReservationService.WrapperModels;
+using ReservationService.Core.Services.Interfaces;
+using ReservationService.WrapperModels.Core;
+using ReservationService.Infrastructure.Enum;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace ReservationService.Controllers
+namespace ReservationService.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -57,7 +51,7 @@ namespace ReservationService.Controllers
         }
         [CustomAuthorizationFilter("Manager", "Customer")]
         [HttpPost("CreateReservation")]
-        public async Task<IActionResult> CreateReservation([FromBody] ReservationViewModel reservationmodel)
+        public async Task<IActionResult> CreateReservation([FromBody] ReservationDto reservationmodel)
         {
             var result = await _reservationService.CreateReservationAsync(reservationmodel);
 
@@ -65,7 +59,7 @@ namespace ReservationService.Controllers
         }
         [CustomAuthorizationFilter("Manager")]
         [HttpPut("UpdateReservation")]
-        public async Task<IActionResult> UpdateReservation([FromBody] ReservationViewModel reservationmodel)
+        public async Task<IActionResult> UpdateReservation([FromBody] ReservationDto reservationmodel)
         {
             var result = await _reservationService.UpdateAsync(reservationmodel);
 
@@ -81,7 +75,7 @@ namespace ReservationService.Controllers
         }
         [CustomAuthorizationFilter("Manager")]
         [HttpPost("SearchReservations")]
-        public async Task<IActionResult> SearchReservations([FromBody] SearchReservationViewModel searchReservationsModel)
+        public async Task<IActionResult> SearchReservations([FromBody] SearchReservationDto searchReservationsModel)
         {
             var result = await _reservationService.GetReservationsByDateSlotAsync(DateOnly.Parse(searchReservationsModel.ReservationDate),
                 TimeOnly.Parse(searchReservationsModel.TimeSlot), searchReservationsModel.Skip, searchReservationsModel.Take);
@@ -100,7 +94,7 @@ namespace ReservationService.Controllers
             return Ok(status.ToString());
         }
 
-        private UserClaimsViewModel GetCurrentUser()
+        private UserClaimsDto GetCurrentUser()
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -108,7 +102,7 @@ namespace ReservationService.Controllers
 
             var roles = User.FindAll(ClaimTypes.Role).Select(r => r.Value).ToList();
 
-            var currentUser = new UserClaimsViewModel
+            var currentUser = new UserClaimsDto
             {
                 UserID = userIdClaim,
                 UserName = userName,

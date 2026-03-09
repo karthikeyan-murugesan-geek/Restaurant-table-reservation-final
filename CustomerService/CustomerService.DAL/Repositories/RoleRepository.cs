@@ -1,7 +1,7 @@
 ﻿using System;
-using CustomerService.DAL.Repositories.Interfaces;
+using CustomerService.Infrastructure.Repositories.Interfaces;
 
-namespace CustomerService.DAL.Repositories
+namespace CustomerService.Infrastructure.Repositories
 {
 	public class RoleRepository : IRoleRepository
 	{

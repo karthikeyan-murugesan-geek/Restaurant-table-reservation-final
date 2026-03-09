@@ -1577,49 +1577,54 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "CustomerService/1.0.0": {
+      "CustomerService.API/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "BCrypt.Net-Next": "4.1.0",
-          "CustomerService.DAL": "1.0.0",
-          "CustomerService.ViewModel": "1.0.0",
+          "CustomerService.Core": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.36",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "compile": {
-          "bin/placeholder/CustomerService.dll": {}
+          "bin/placeholder/CustomerService.API.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CustomerService.dll": {}
+          "bin/placeholder/CustomerService.API.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
       },
-      "CustomerService.DAL/1.0.0": {
+      "CustomerService.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "BCrypt.Net-Next": "4.1.0",
+          "CustomerService.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CustomerService.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CustomerService.Core.dll": {}
+        }
+      },
+      "CustomerService.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.36"
         },
         "compile": {
-          "bin/placeholder/CustomerService.DAL.dll": {}
+          "bin/placeholder/CustomerService.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CustomerService.DAL.dll": {}
-        }
-      },
-      "CustomerService.ViewModel/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/CustomerService.ViewModel.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CustomerService.ViewModel.dll": {}
+          "bin/placeholder/CustomerService.Infrastructure.dll": {}
         }
       }
     }
@@ -4003,27 +4008,26 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "CustomerService/1.0.0": {
+    "CustomerService.API/1.0.0": {
       "type": "project",
-      "path": "../CustomerService/CustomerService.csproj",
-      "msbuildProject": "../CustomerService/CustomerService.csproj"
+      "path": "../CustomerService/CustomerService.API.csproj",
+      "msbuildProject": "../CustomerService/CustomerService.API.csproj"
     },
-    "CustomerService.DAL/1.0.0": {
+    "CustomerService.Core/1.0.0": {
       "type": "project",
-      "path": "../CustomerService.DAL/CustomerService.DAL.csproj",
-      "msbuildProject": "../CustomerService.DAL/CustomerService.DAL.csproj"
+      "path": "../CustomerService.Core/CustomerService.Core.csproj",
+      "msbuildProject": "../CustomerService.Core/CustomerService.Core.csproj"
     },
-    "CustomerService.ViewModel/1.0.0": {
+    "CustomerService.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../CustomerService.ViewModel/CustomerService.ViewModel.csproj",
-      "msbuildProject": "../CustomerService.ViewModel/CustomerService.ViewModel.csproj"
+      "path": "../CustomerService.DAL/CustomerService.Infrastructure.csproj",
+      "msbuildProject": "../CustomerService.DAL/CustomerService.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "CustomerService >= 1.0.0",
-      "CustomerService.DAL >= 1.0.0",
-      "CustomerService.ViewModel >= 1.0.0",
+      "CustomerService.API >= 1.0.0",
+      "CustomerService.Core >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Testing >= 6.0.36",
       "Microsoft.AspNetCore.TestHost >= 6.0.36",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
@@ -4057,14 +4061,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.DAL.csproj": {
-              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.DAL/CustomerService.DAL.csproj"
+            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Core/CustomerService.Core.csproj": {
+              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.Core/CustomerService.Core.csproj"
             },
-            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/CustomerService.ViewModel.csproj": {
-              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService.ViewModel/CustomerService.ViewModel.csproj"
-            },
-            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.csproj": {
-              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.csproj"
+            "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.API.csproj": {
+              "projectPath": "/Users/sunanthakarthikeyan/Karthikeyan/Restaurant-Table-Reservation/CustomerService/CustomerService/CustomerService.API.csproj"
             }
           }
         }

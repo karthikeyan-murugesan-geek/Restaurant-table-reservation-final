@@ -1,7 +1,7 @@
 ﻿using System;
-using CustomerService.DAL.Models;
+using CustomerService.Infrastructure.Models;
 
-namespace CustomerService.DAL
+namespace CustomerService.Infrastructure
 {
     public static class DataSeeder
     {

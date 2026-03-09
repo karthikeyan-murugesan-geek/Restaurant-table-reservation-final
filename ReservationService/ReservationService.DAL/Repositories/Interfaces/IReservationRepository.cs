@@ -1,8 +1,8 @@
 ﻿using System;
-using ReservationService.DAL.Enum;
-using ReservationService.DAL.Models;
+using ReservationService.Infrastructure.Enum;
+using ReservationService.Infrastructure.Models;
 
-namespace ReservationService.DAL.Repositories.Interfaces
+namespace ReservationService.Infrastructure.Repositories.Interfaces
 {
 	public interface IReservationRepository
 	{

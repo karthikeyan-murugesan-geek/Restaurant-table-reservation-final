@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CustomerService.DAL.Models
+namespace CustomerService.Infrastructure.Models
 {
     [Table("Role")]
     public class Role

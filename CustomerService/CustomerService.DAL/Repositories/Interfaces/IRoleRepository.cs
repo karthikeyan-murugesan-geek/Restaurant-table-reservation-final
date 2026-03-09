@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CustomerService.DAL.Repositories.Interfaces
+namespace CustomerService.Infrastructure.Repositories.Interfaces
 {
 	public interface IRoleRepository
 	{

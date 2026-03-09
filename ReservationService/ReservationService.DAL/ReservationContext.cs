@@ -1,8 +1,8 @@
 ﻿using System;
-using ReservationService.DAL.Models;
+using ReservationService.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ReservationService.DAL;
+namespace ReservationService.Infrastructure;
 public class ReservationContext : DbContext
 {
     public ReservationContext(DbContextOptions<ReservationContext> options)

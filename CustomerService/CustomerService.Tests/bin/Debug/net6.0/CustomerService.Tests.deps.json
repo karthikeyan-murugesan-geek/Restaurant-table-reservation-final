@@ -34,9 +34,8 @@
     ".NETCoreApp,Version=v6.0": {
       "CustomerService.Tests/1.0.0": {
         "dependencies": {
-          "CustomerService": "1.0.0",
-          "CustomerService.DAL": "1.0.0",
-          "CustomerService.ViewModel": "1.0.0",
+          "CustomerService.API": "1.0.0",
+          "CustomerService.Core": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Testing": "6.0.36",
           "Microsoft.AspNetCore.TestHost": "6.0.36",
           "Microsoft.NET.Test.Sdk": "17.8.0",
@@ -1369,40 +1368,45 @@
         }
       },
       "xunit.runner.visualstudio/2.5.3": {},
-      "CustomerService/1.0.0": {
+      "CustomerService.API/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "BCrypt.Net-Next": "4.1.0",
-          "CustomerService.DAL": "1.0.0",
-          "CustomerService.ViewModel": "1.0.0",
+          "CustomerService.Core": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.36",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
-          "CustomerService.dll": {}
+          "CustomerService.API.dll": {}
         },
         "compile": {
-          "CustomerService.dll": {}
+          "CustomerService.API.dll": {}
         }
       },
-      "CustomerService.DAL/1.0.0": {
+      "CustomerService.Core/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "BCrypt.Net-Next": "4.1.0",
+          "CustomerService.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "CustomerService.Core.dll": {}
+        },
+        "compile": {
+          "CustomerService.Core.dll": {}
+        }
+      },
+      "CustomerService.Infrastructure/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.36"
         },
         "runtime": {
-          "CustomerService.DAL.dll": {}
+          "CustomerService.Infrastructure.dll": {}
         },
         "compile": {
-          "CustomerService.DAL.dll": {}
-        }
-      },
-      "CustomerService.ViewModel/1.0.0": {
-        "runtime": {
-          "CustomerService.ViewModel.dll": {}
-        },
-        "compile": {
-          "CustomerService.ViewModel.dll": {}
+          "CustomerService.Infrastructure.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/6.0.0.0": {
@@ -3722,17 +3726,17 @@
       "path": "xunit.runner.visualstudio/2.5.3",
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
-    "CustomerService/1.0.0": {
+    "CustomerService.API/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "CustomerService.DAL/1.0.0": {
+    "CustomerService.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "CustomerService.ViewModel/1.0.0": {
+    "CustomerService.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,13 +1,13 @@
 ﻿
 using Xunit;
 using Microsoft.EntityFrameworkCore;
-using ReservationService.DAL.Models;
-using ReservationService.DAL.Repositories;
+using ReservationService.Infrastructure.Models;
+using ReservationService.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using ReservationService.DAL;
+using ReservationService.Infrastructure;
 
 namespace ReservationService.UnitTest
 {

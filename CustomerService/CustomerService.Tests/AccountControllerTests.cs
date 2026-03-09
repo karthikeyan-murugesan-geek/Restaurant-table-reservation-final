@@ -1,7 +1,7 @@
-﻿using CustomerService.Controllers;
+﻿using CustomerService.API.Controllers;
 using CustomerService.Models;
 using CustomerService.Services.Interfaces;
-using CustomerService.ViewModel;
+using CustomerService.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
@@ -25,7 +25,7 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var signup = new SignupModel { UserName = "John", Password = "Pass123", Role = "Customer", MobileNumebr = "1234567890" };
+        var signup = new SignupDto { UserName = "John", Password = "Pass123", Role = "Customer", MobileNumebr = "1234567890" };
 
         _userServiceMock.Setup(s => s.IsValidUserName("John"))
             .ReturnsAsync(true); 
@@ -43,13 +43,13 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var signup = new SignupModel { UserName = "James", Password = "Pass123", Role = "Customer", MobileNumebr = "1234567890" };
+        var signup = new SignupDto { UserName = "James", Password = "Pass123", Role = "Customer", MobileNumebr = "1234567890" };
 
         _userServiceMock.Setup(s => s.IsValidUserName("John"))
             .ReturnsAsync(false);
 
-        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<UserViewModel>(), "Customer"))
-            .ReturnsAsync(new UserViewModel { UserID = 1, UserName = "John" });
+        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<UserDto>(), "Customer"))
+            .ReturnsAsync(new UserDto { UserID = 1, UserName = "John" });
 
         // Act
         var result = await controller.SignUp(signup);
@@ -64,10 +64,10 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var login = new LoginModel { UserName = "John", Password = "pass" };
+        var login = new LoginDto { UserName = "John", Password = "pass" };
 
         _userServiceMock.Setup(s => s.GetUserByUserName("John"))
-            .ReturnsAsync((UserViewModel?)null);
+            .ReturnsAsync((UserDto?)null);
 
         // Act
         var result = await controller.Login(login);
@@ -82,9 +82,9 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var login = new LoginModel { UserName = "John", Password = "pass1" };
+        var login = new LoginDto { UserName = "John", Password = "pass1" };
 
-        var user = new UserViewModel
+        var user = new UserDto
         {
             UserID = 1,
             UserName = "John",
@@ -108,9 +108,9 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var login = new LoginModel { UserName = "John", Password = "pass1" };
+        var login = new LoginDto { UserName = "John", Password = "pass1" };
 
-        var user = new UserViewModel
+        var user = new UserDto
         {
             UserID = 1,
             UserName = "John",

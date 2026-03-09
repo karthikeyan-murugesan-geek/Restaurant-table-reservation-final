@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using ReservationService.DAL.Enum;
-using ReservationService.DAL.Models;
-using ReservationService.DAL.Repositories.Interfaces;
+using ReservationService.Infrastructure;
+using ReservationService.Infrastructure.Enum;
+using ReservationService.Infrastructure.Models;
+using ReservationService.Infrastructure.Repositories.Interfaces;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace ReservationService.DAL.Repositories
+namespace ReservationService.Infrastructure.Repositories
 {
 	public class ReservationRepository : IReservationRepository
 	{

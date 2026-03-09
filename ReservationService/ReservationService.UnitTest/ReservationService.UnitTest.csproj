@@ -19,8 +19,8 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReservationService\ReservationService.csproj" />
-    <ProjectReference Include="..\ReservationService.ViewModel\ReservationService.ViewModel.csproj" />
-    <ProjectReference Include="..\ReservationService.DAL\ReservationService.DAL.csproj" />
+    <ProjectReference Include="..\ReservationService.Core\ReservationService.Core.csproj" />
+    <ProjectReference Include="..\ReservationService\ReservationService.API.csproj" />
+    <ProjectReference Include="..\ReservationService.DAL\ReservationService.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

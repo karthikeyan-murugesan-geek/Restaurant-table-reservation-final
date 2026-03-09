@@ -1,7 +1,7 @@
 ﻿using System;
-using CustomerService.DAL.Models;
+using CustomerService.Infrastructure.Models;
 
-namespace CustomerService.DAL.Repositories.Interfaces
+namespace CustomerService.Infrastructure.Repositories.Interfaces
 {
 	public interface IUserRepository
 	{

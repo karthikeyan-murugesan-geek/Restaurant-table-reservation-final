@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using ReservationService.Filters;
+using ReservationService;
 using System.Security.Claims;
 using Xunit;
 using Microsoft.AspNetCore.Routing;
+using ReservationService.Filters;
 
 namespace ReservationService.UnitTest
 {

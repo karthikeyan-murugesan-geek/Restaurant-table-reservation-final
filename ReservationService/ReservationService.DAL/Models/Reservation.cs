@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Emit;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using ReservationService.DAL.Enum;
+using ReservationService.Infrastructure.Enum;
 
-namespace ReservationService.DAL.Models
+namespace ReservationService.Infrastructure.Models
 {
 	public class Reservation
 	{

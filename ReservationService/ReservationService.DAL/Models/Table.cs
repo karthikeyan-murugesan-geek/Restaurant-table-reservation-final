@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ReservationService.DAL.Models
+namespace ReservationService.Infrastructure.Models
 {
     [Table("Table")]
 	public class Table

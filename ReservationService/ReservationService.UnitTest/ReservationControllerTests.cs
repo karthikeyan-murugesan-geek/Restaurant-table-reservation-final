@@ -1,12 +1,12 @@
 ﻿using Xunit;
 using Moq;
 using Microsoft.AspNetCore.Mvc;
-using ReservationService.Controllers;
-using ReservationService.Services.Interfaces;
-using ReservationService.ViewModel;
+using ReservationService.API.Controllers;
+using ReservationService.Core.Services.Interfaces;
 using ReservationService.WrapperModels;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+using ReservationService.WrapperModels.Core;
 
 public class ReservationControllerTests
 {
@@ -39,8 +39,8 @@ public class ReservationControllerTests
     public async Task CreateReservation_ReturnsOk_WithCreatedReservation()
     {
         
-        var reservation = new ReservationViewModel { ReservationID = 1, TableID = 1, GuestsCount = 4 };
-        var model = new ResponseViewModel<ReservationViewModel>
+        var reservation = new ReservationDto { ReservationID = 1, TableID = 1, GuestsCount = 4 };
+        var model = new ResponseDto<ReservationDto>
         {
             Data = reservation
         };
@@ -58,7 +58,7 @@ public class ReservationControllerTests
     [Fact]
     public async Task GetReservation_ReturnsOk_WhenReservationExists()
     {
-        var reservation = new ReservationViewModel { ReservationID = 1 };
+        var reservation = new ReservationDto { ReservationID = 1 };
         
         _reservationServiceMock.Setup(s => s.GetAsync(1))
             .ReturnsAsync(reservation);
@@ -72,10 +72,10 @@ public class ReservationControllerTests
     [Fact]
     public async Task GetReservationsByUser_ReturnsOk_WhenReservationsExist()
     {
-        var reservations = new List<ReservationViewModel>
+        var reservations = new List<ReservationDto>
         {
-            new ReservationViewModel { ReservationID = 1 },
-            new ReservationViewModel { ReservationID = 2 }
+            new ReservationDto { ReservationID = 1 },
+            new ReservationDto { ReservationID = 2 }
         };
 
         _reservationServiceMock.Setup(s => s.GetByUserAsync(1))
@@ -90,10 +90,10 @@ public class ReservationControllerTests
     [Fact]
     public async Task GetAllReservation_ReturnsOk_WithPaginatedList()
     {
-        var paginatedReservations = new List<ReservationViewModel>
+        var paginatedReservations = new List<ReservationDto>
         {
-            new ReservationViewModel { ReservationID = 1 },
-            new ReservationViewModel { ReservationID = 2 }
+            new ReservationDto { ReservationID = 1 },
+            new ReservationDto { ReservationID = 2 }
         };
 
         _reservationServiceMock.Setup(s => s.GetAllAsync(0, 2))
@@ -108,7 +108,7 @@ public class ReservationControllerTests
     [Fact]
     public async Task SearchReservations_ReturnsOk_WithFilteredList()
     {
-        var searchModel = new ReservationService.WrapperModels.SearchReservationViewModel
+        var searchModel = new ReservationService.Core.WrapperModels.SearchReservationDto
         {
             ReservationDate = "2026-03-07",
             TimeSlot = "10:00",
@@ -116,9 +116,9 @@ public class ReservationControllerTests
             Take = 5
         };
 
-        var filteredReservations = new List<ReservationViewModel>
+        var filteredReservations = new List<ReservationDto>
         {
-            new ReservationViewModel { ReservationID = 1 }
+            new ReservationDto { ReservationID = 1 }
         };
 
         _reservationServiceMock.Setup(s => s.GetReservationsByDateSlotAsync(

@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 
-using ReservationService.DAL;
-using ReservationService.DAL.Repositories;
-using ReservationService.DAL.Repositories.Interfaces;
-using ReservationService.Mappings;
-using ReservationService.Models;
-using ReservationService.Services;
-using ReservationService.Services.Interfaces;
+using ReservationService.Infrastructure;
+using ReservationService.Infrastructure.Repositories;
+using ReservationService.Infrastructure.Repositories.Interfaces;
+using ReservationService.Core.Mappings;
+using ReservationService.Core.Services;
+using ReservationService.Core.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +20,7 @@ using ReservationService.Middlewares;
 using System.Text.Json.Serialization;
 using ReservationService.Filters;
 using Microsoft.Extensions.Logging;
+using ReservationService.Core.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,7 +93,7 @@ builder.Services.AddDbContext<ReservationContext>(options =>
     options.UseInMemoryDatabase("ReservationDB"));
 
 
-builder.Services.AddScoped<ICustomerApiService, ReservationService.Services.CustomerApiService>();
+builder.Services.AddScoped<ICustomerApiService, CustomerApiService>();
 builder.Services.AddHttpClient<ICustomerApiService, CustomerApiService>().AddHttpMessageHandler<TokenForwardingHandler>();
 
 builder.Services.AddScoped<IReservationService, ReservationService.Services.ReservationService>();

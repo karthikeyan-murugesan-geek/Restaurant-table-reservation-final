@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 
-using CustomerService.DAL;
-using CustomerService.DAL.Repositories;
-using CustomerService.DAL.Repositories.Interfaces;
+using CustomerService.Infrastructure;
+using CustomerService.Infrastructure.Repositories;
+using CustomerService.Infrastructure.Repositories.Interfaces;
 using CustomerService.Mappings;
 using CustomerService.Models;
 using CustomerService.Services;

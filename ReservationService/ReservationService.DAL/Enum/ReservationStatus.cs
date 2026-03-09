@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ReservationService.DAL.Enum
+namespace ReservationService.Infrastructure.Enum
 {
 	public enum ReservationStatus
 	{

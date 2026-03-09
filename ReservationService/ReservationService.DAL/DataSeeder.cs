@@ -1,7 +1,7 @@
 ﻿using System;
-using ReservationService.DAL.Models;
+using ReservationService.Infrastructure.Models;
 
-namespace ReservationService.DAL
+namespace ReservationService.Infrastructure
 {
     public static class DataSeeder
     {
