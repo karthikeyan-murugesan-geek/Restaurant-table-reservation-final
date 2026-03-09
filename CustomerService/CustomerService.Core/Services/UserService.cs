@@ -2,10 +2,10 @@
 using AutoMapper;
 using CustomerService.Infrastructure.Models;
 using CustomerService.Infrastructure.Repositories.Interfaces;
-using CustomerService.Services.Interfaces;
+using CustomerService.Core.Services.Interfaces;
 using CustomerService.Core.Models;
 
-namespace CustomerService.Services
+namespace CustomerService.Core.Services
 {
 	public class UserService :IUserService
 	{
@@ -30,11 +30,20 @@ namespace CustomerService.Services
         {
             return await _userRepository.IsCustomerAsync(userID);
         }
-        public async Task<UserDto> CreateUser(UserDto user, string role)
+        public async Task<UserDto?> CreateUser(SignupDto user, string role)
 		{
-			var userModel = mapper.Map<User>(user);
+			if (await IsValidUserName(user.UserName))
+				return null;
+
+            var userDto = new UserDto
+            {
+                UserName = user.UserName,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password),
+                MobileNumber = user.MobileNumber ?? string.Empty
+            };
+            var userModel = mapper.Map<User>(userDto);
 			userModel = await _userRepository.CreateUser(userModel, role);
-			return mapper.Map<UserDto>(userModel);
+			return mapper.Map<UserDto?>(userModel);
 		}
 
     }

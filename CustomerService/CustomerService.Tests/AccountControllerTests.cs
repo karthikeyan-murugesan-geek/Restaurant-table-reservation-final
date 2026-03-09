@@ -1,6 +1,6 @@
 ﻿using CustomerService.API.Controllers;
 using CustomerService.Models;
-using CustomerService.Services.Interfaces;
+using CustomerService.Core.Services.Interfaces;
 using CustomerService.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -10,6 +10,8 @@ namespace CustomerService.Tests;
 public class AccountControllerTests
 {
     private readonly Mock<IUserService> _userServiceMock = new();
+    private readonly Mock<IAuthService> _authServiceMock = new();
+    private readonly Mock<ITokenService> _tokenService = new();
     private readonly AppSettings _appSettings = new AppSettings
     {
          Jwt=new Jwt { Key = "ThisIsASecretKeyForTestingPurposes12345" }
@@ -17,7 +19,7 @@ public class AccountControllerTests
 
     private AccountController GetController()
     {
-        return new AccountController(_userServiceMock.Object, _appSettings);
+        return new AccountController(_userServiceMock.Object, _appSettings, _tokenService.Object, _authServiceMock.Object);
     }
 
     [Fact]
@@ -25,12 +27,11 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var signup = new SignupDto { UserName = "John", Password = "Pass123", Role = "Customer", MobileNumebr = "1234567890" };
-
-        _userServiceMock.Setup(s => s.IsValidUserName("John"))
-            .ReturnsAsync(true); 
-
+        var signup = new SignupDto { UserName = "John", Password = "Pass123", Role = "Customer", MobileNumber = "1234567890" };
+        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<SignupDto>(), "Customer"))
+            .ReturnsAsync((UserDto?)null);
         // Act
+
         var result = await controller.SignUp(signup);
 
         // Assert
@@ -43,12 +44,12 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var signup = new SignupDto { UserName = "James", Password = "Pass123", Role = "Customer", MobileNumebr = "1234567890" };
+        var signup = new SignupDto { UserName = "James", Password = "Pass123", Role = "Customer", MobileNumber = "1234567890" };
 
         _userServiceMock.Setup(s => s.IsValidUserName("John"))
             .ReturnsAsync(false);
 
-        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<UserDto>(), "Customer"))
+        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<SignupDto>(), "Customer"))
             .ReturnsAsync(new UserDto { UserID = 1, UserName = "John" });
 
         // Act
@@ -60,14 +61,14 @@ public class AccountControllerTests
     }
 
     [Fact]
-    public async Task Login_UserNotFound_ReturnsUnauthorized()
+    public async Task Login_UserNotFound_InvalidPwd_ReturnsUnauthorized()
     {
         // Arrange
         var controller = GetController();
         var login = new LoginDto { UserName = "John", Password = "pass" };
 
-        _userServiceMock.Setup(s => s.GetUserByUserName("John"))
-            .ReturnsAsync((UserDto?)null);
+        _authServiceMock.Setup(s => s.LoginAsync(login))
+            .ReturnsAsync(new LoginResultDto { Success = false});
 
         // Act
         var result = await controller.Login(login);
@@ -78,48 +79,21 @@ public class AccountControllerTests
     }
 
     [Fact]
-    public async Task Login_InvalidPassword_ReturnsUnauthorized()
-    {
-        // Arrange
-        var controller = GetController();
-        var login = new LoginDto { UserName = "John", Password = "pass1" };
-
-        var user = new UserDto
-        {
-            UserID = 1,
-            UserName = "John",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("pass2"),
-            Roles = new List<string>() { "Customer" }
-        };
-
-        _userServiceMock.Setup(s => s.GetUserByUserName("John"))
-            .ReturnsAsync(user);
-
-        // Act
-        var result = await controller.Login(login);
-
-        // Assert
-        var unauthorized = Assert.IsType<UnauthorizedObjectResult>(result);
-        Assert.Equal("Invalid password", unauthorized.Value);
-    }
-
-    [Fact]
     public async Task Login_ValidUser_ReturnsTokens()
     {
         // Arrange
         var controller = GetController();
         var login = new LoginDto { UserName = "John", Password = "pass1" };
 
-        var user = new UserDto
+        var loginResult = new LoginResultDto
         {
-            UserID = 1,
-            UserName = "John",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("pass1"),
-            Roles = new List<string>() { "Customer" }
+            Success = true,
+            AccessToken = "tempToken",
+            RefreshToken = "tempToken"
         };
 
-        _userServiceMock.Setup(s => s.GetUserByUserName("John"))
-            .ReturnsAsync(user);
+        _authServiceMock.Setup(s => s.LoginAsync(login))
+            .ReturnsAsync(loginResult);
 
         // Act
         var result = await controller.Login(login);

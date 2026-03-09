@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-
+using CustomerService.Core.Services;
+using CustomerService.Core.Services.Interfaces;
 using CustomerService.Infrastructure;
 using CustomerService.Infrastructure.Repositories;
 using CustomerService.Infrastructure.Repositories.Interfaces;
 using CustomerService.Mappings;
 using CustomerService.Models;
-using CustomerService.Services;
-using CustomerService.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -79,8 +78,9 @@ builder.Services.AddSingleton(typeof(AppSettings), appSettings);
 builder.Services.AddDbContext<CustomerContext>(options =>
     options.UseInMemoryDatabase("CustomerDb"));
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddAutoMapper(typeof(CustomerProfile));
 
 var app = builder.Build();

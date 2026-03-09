@@ -7,7 +7,7 @@ namespace CustomerService.Core.Models
 	{
         [Required]
         public string Role { get; set; }
-        public string? MobileNumebr { get; set; }
+        public string? MobileNumber { get; set; }
     }
 }
 
