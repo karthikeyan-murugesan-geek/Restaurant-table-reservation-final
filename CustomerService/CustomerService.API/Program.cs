@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using CustomerService.Core.Services;
 using CustomerService.Core.Services.Interfaces;
+using CustomerService.Core.Validators;
 using CustomerService.Infrastructure;
 using CustomerService.Infrastructure.Repositories;
 using CustomerService.Infrastructure.Repositories.Interfaces;
 using CustomerService.Mappings;
 using CustomerService.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +31,8 @@ builder.Services.AddControllers(options =>
 
     options.Filters.Add(new AuthorizeFilter(policy));
 });
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<LoginDtoValidator>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

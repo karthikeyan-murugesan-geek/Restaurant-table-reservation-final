@@ -5,6 +5,7 @@ using ReservationService.Infrastructure.Models;
 using ReservationService.Infrastructure.Repositories.Interfaces;
 using ReservationService.Core.Services.Interfaces;
 using ReservationService.WrapperModels.Core;
+using ReservationService.Core.WrapperModels;
 
 namespace ReservationService.Services
 {
@@ -22,13 +23,13 @@ namespace ReservationService.Services
             this._customerApiService = customerApiService;
 			this.mapper = mapper;
 		}
-        public async Task<ResponseDto<ReservationDto>> CreateReservationAsync(ReservationDto reservation)
+        public async Task<ResponseDto<ReservationCreateDto>> CreateReservationAsync(ReservationCreateDto reservation)
         {
             var reservationModel = mapper.Map<Reservation>(reservation);
             var isValidCustomer = await _customerApiService.CustomerExists(reservationModel.ReservedByUserID);
             if(!isValidCustomer)
             {
-                return new ResponseDto<ReservationDto>
+                return new ResponseDto<ReservationCreateDto>
                 {
                     Success = false,
                     Message = "Customer doesnot exists."
@@ -37,7 +38,7 @@ namespace ReservationService.Services
             var table = await _tableRepository.GetAsync(reservationModel.TableID);
             if (table == null)
             {
-                return new ResponseDto<ReservationDto>
+                return new ResponseDto<ReservationCreateDto>
                 {
                     Success = false,
                     Message = "Table does not exists"
@@ -45,7 +46,7 @@ namespace ReservationService.Services
             }
             if(table.Capacity < reservationModel.GuestsCount)
             {
-                return new ResponseDto<ReservationDto>
+                return new ResponseDto<ReservationCreateDto>
                 {
                     Success = false,
                     Message = "Guest count exceeds table capacity"
@@ -54,27 +55,28 @@ namespace ReservationService.Services
             var exitingReservation = await _reservationRepository.GetByTableDateSlotAsync(reservationModel.TableID, reservationModel.ReservationDate, reservationModel.TimeSlot);
             if(exitingReservation != null)
             {
-                return new ResponseDto<ReservationDto>
+                return new ResponseDto<ReservationCreateDto>
                 {
                     Success = false,
                     Message = "Table already reserved for this time slot"
                 };
             }
             reservationModel = await _reservationRepository.AddAsync(reservationModel);
-            return new ResponseDto<ReservationDto>
+            return new ResponseDto<ReservationCreateDto>
             {
                 Success = true,
                 Message = "Reservation successful",
-                Data = mapper.Map<ReservationDto>(reservationModel)
+                Data = mapper.Map<ReservationCreateDto>(reservationModel)
 
             }; 
 		}
 
-        public async Task<ReservationDto?> UpdateAsync(ReservationDto reservation)
+        public async Task<ReservationCreateDto?> UpdateAsync(long id, ReservationCreateDto reservation)
         {
             var reservationModel = mapper.Map<Reservation>(reservation);
+            reservationModel.ID = id;
             reservationModel = await _reservationRepository.UpdateAsync(reservationModel);
-            return mapper.Map<ReservationDto?>(reservationModel);
+            return mapper.Map<ReservationCreateDto?>(reservationModel);
         }
 
         public async Task<bool> DeleteAsync(long reservationID)
@@ -82,33 +84,33 @@ namespace ReservationService.Services
             return await _reservationRepository.DeleteAsync(reservationID);
         }
 
-        public async Task<ReservationDto?> GetAsync(long reservationID)
+        public async Task<ReservationResponseDto?> GetAsync(long reservationID)
         {
             var reservationModel = await _reservationRepository.GetAsync(reservationID);
-            return mapper.Map<ReservationDto?>(reservationModel);
+            return mapper.Map<ReservationResponseDto?>(reservationModel);
         }
 
-        public async Task<List<ReservationDto>?> GetByUserAsync(long userID)
+        public async Task<List<ReservationResponseDto>?> GetByUserAsync(long userID)
         {
             var reservationModelList = await _reservationRepository.GetByUserAsync(userID);
-            return mapper.Map<List<ReservationDto>?>(reservationModelList);
+            return mapper.Map<List<ReservationResponseDto>?>(reservationModelList);
         }
-        public async Task<List<ReservationDto>?> GetAllAsync(int? skip = null, int? take = null)
+        public async Task<List<ReservationResponseDto>?> GetAllAsync(int? skip = null, int? take = null)
         {
             var reservationList = await _reservationRepository.GetAllAsync(skip, take);
-            return mapper.Map<List<ReservationDto>?>(reservationList);
+            return mapper.Map<List<ReservationResponseDto>?>(reservationList);
         }
 
-        public async Task<List<ReservationDto>?> GetReservationsByDateSlotAsync(DateOnly reservationDate, TimeOnly timeslot, int? skip = null, int? take = null)
+        public async Task<List<ReservationResponseDto>?> GetReservationsByDateSlotAsync(DateOnly reservationDate, TimeOnly timeslot, int? skip = null, int? take = null)
         {
             var reservationList = await _reservationRepository.GetReservationsByDateSlotAsync(reservationDate, timeslot, skip, take);
-            return mapper.Map<List<ReservationDto>?>(reservationList);
+            return mapper.Map<List<ReservationResponseDto>?>(reservationList);
         }
 
-        public async Task<ReservationDto?> UpdateStatusAsync(long id, ReservationStatus reservationStatus)
+        public async Task<ReservationResponseDto?> UpdateStatusAsync(long id, ReservationStatus reservationStatus)
         {
             var reservationModel = await _reservationRepository.UpdateStatusAsync(id, reservationStatus);
-            return mapper.Map<ReservationDto?>(reservationModel);
+            return mapper.Map<ReservationResponseDto?>(reservationModel);
         }
     }
 }

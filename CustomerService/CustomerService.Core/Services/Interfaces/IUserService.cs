@@ -8,7 +8,7 @@ namespace CustomerService.Core.Services.Interfaces
 	{
         Task<UserDto?> GetUserByUserName(string userName);
         Task<bool> IsValidUserName(string userName);
-        Task<UserDto?> CreateUser(SignupDto user, string role);
+        Task<UserDto?> CreateUser(SignupDto user);
         Task<bool> IsCustomerAsync(long userID);
 
     }

@@ -27,7 +27,7 @@ namespace CustomerService.API.Controllers
         public async Task<IActionResult> SignUp([FromBody] SignupDto signUpModel)
         {
 
-            var user = await userService.CreateUser(signUpModel, signUpModel.Role);
+            var user = await userService.CreateUser(signUpModel);
             if (user == null)
                 return BadRequest("Username already exists");
             return Ok($"User created as {signUpModel.Role} {user.UserName}");

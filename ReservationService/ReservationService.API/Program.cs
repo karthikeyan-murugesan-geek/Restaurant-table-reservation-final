@@ -21,6 +21,8 @@ using System.Text.Json.Serialization;
 using ReservationService.Filters;
 using Microsoft.Extensions.Logging;
 using ReservationService.Core.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +39,8 @@ builder.Services.AddControllers(options =>
     options.JsonSerializerOptions.Converters.Add(
         new JsonStringEnumConverter());
 });
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<ReservationCreateDtoValidator>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

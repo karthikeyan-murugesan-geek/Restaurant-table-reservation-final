@@ -51,17 +51,17 @@ namespace ReservationService.API.Controllers
         }
         [CustomAuthorizationFilter("Manager", "Customer")]
         [HttpPost("CreateReservation")]
-        public async Task<IActionResult> CreateReservation([FromBody] ReservationDto reservationmodel)
+        public async Task<IActionResult> CreateReservation([FromBody] ReservationCreateDto reservationmodel)
         {
             var result = await _reservationService.CreateReservationAsync(reservationmodel);
 
             return Ok(result);
         }
         [CustomAuthorizationFilter("Manager")]
-        [HttpPut("UpdateReservation")]
-        public async Task<IActionResult> UpdateReservation([FromBody] ReservationDto reservationmodel)
+        [HttpPut("UpdateReservation/{id}")]
+        public async Task<IActionResult> UpdateReservation([FromRoute]long id,[FromBody] ReservationCreateDto reservationmodel)
         {
-            var result = await _reservationService.UpdateAsync(reservationmodel);
+            var result = await _reservationService.UpdateAsync(id, reservationmodel);
 
             return Ok(result);
         }
@@ -83,8 +83,8 @@ namespace ReservationService.API.Controllers
             return Ok(result);
         }
         [CustomAuthorizationFilter("Manager")]
-        [HttpPatch("{id}/ReservationStatus")]
-        public async Task<IActionResult> UpdateReservationStatus(long id, [FromBody] ReservationStatus status)
+        [HttpPatch("UpdateReservationStatus/{id}")]
+        public async Task<IActionResult> UpdateReservationStatus([FromRoute]long id, [FromBody] ReservationStatus status)
         {
             var updated = await _reservationService.UpdateStatusAsync(id, status);
 

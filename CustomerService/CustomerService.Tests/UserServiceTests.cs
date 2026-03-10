@@ -34,14 +34,15 @@ namespace CustomerService.Tests
             {
                 UserName = "test",
                 Password = "password",
-                MobileNumber = "9999999999"
+                MobileNumber = "9999999999",
+                Role = Core.Enums.UserRole.Customer
             };
 
             _userRepositoryMock.Setup(x => x.IsValidUserName(signup.UserName))
                    .ReturnsAsync(true);
 
             
-            var result = await _userService.CreateUser(signup, "User");
+            var result = await _userService.CreateUser(signup);
 
             
             Assert.Null(result);
@@ -55,7 +56,8 @@ namespace CustomerService.Tests
             {
                 UserName = "test",
                 Password = "password",
-                MobileNumber = "9999999999"
+                MobileNumber = "9999999999",
+                Role = Core.Enums.UserRole.Customer
             };
 
             var userDto = new UserDto
@@ -77,14 +79,14 @@ namespace CustomerService.Tests
                        .Returns(userDto);
 
             _userRepositoryMock
-                .Setup(x => x.CreateUser(It.IsAny<User>(), "User"))
+                .Setup(x => x.CreateUser(It.IsAny<User>(), Core.Enums.UserRole.Customer.ToString()))
                 .ReturnsAsync(userEntity);
 
             _userRepositoryMock.Setup(x => x.IsValidUserName(signup.UserName))
                    .ReturnsAsync(false);
 
             // Act
-            var result = await _userService.CreateUser(signup, "User");
+            var result = await _userService.CreateUser(signup);
 
             // Assert
             Assert.NotNull(result);

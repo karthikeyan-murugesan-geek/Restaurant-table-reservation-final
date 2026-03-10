@@ -10,11 +10,15 @@
     <None Remove="Mappings\" />
     <None Remove="Models\" />
     <None Remove="Services\" />
+    <None Remove="Enums\" />
+    <None Remove="Validators\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mappings\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Validators\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Models\AppSettings.cs">
@@ -26,6 +30,7 @@
     <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.36" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomerService.Infrastructure\CustomerService.Infrastructure.csproj" />

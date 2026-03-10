@@ -30,19 +30,19 @@ namespace CustomerService.Core.Services
         {
             return await _userRepository.IsCustomerAsync(userID);
         }
-        public async Task<UserDto?> CreateUser(SignupDto user, string role)
+        public async Task<UserDto?> CreateUser(SignupDto signupDto)
 		{
-			if (await IsValidUserName(user.UserName))
+			if (await IsValidUserName(signupDto.UserName))
 				return null;
 
             var userDto = new UserDto
             {
-                UserName = user.UserName,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password),
-                MobileNumber = user.MobileNumber ?? string.Empty
+                UserName = signupDto.UserName,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(signupDto.Password),
+                MobileNumber = signupDto.MobileNumber ?? string.Empty
             };
             var userModel = mapper.Map<User>(userDto);
-			userModel = await _userRepository.CreateUser(userModel, role);
+			userModel = await _userRepository.CreateUser(userModel, signupDto.Role.ToString());
 			return mapper.Map<UserDto?>(userModel);
 		}
 

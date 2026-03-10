@@ -27,8 +27,8 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var signup = new SignupDto { UserName = "John", Password = "Pass123", Role = "Customer", MobileNumber = "1234567890" };
-        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<SignupDto>(), "Customer"))
+        var signup = new SignupDto { UserName = "John", Password = "Pass123", Role = Core.Enums.UserRole.Customer, MobileNumber = "1234567890" };
+        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<SignupDto>()))
             .ReturnsAsync((UserDto?)null);
         // Act
 
@@ -44,12 +44,12 @@ public class AccountControllerTests
     {
         // Arrange
         var controller = GetController();
-        var signup = new SignupDto { UserName = "James", Password = "Pass123", Role = "Customer", MobileNumber = "1234567890" };
+        var signup = new SignupDto { UserName = "James", Password = "Pass123", Role = Core.Enums.UserRole.Customer, MobileNumber = "1234567890" };
 
         _userServiceMock.Setup(s => s.IsValidUserName("John"))
             .ReturnsAsync(false);
 
-        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<SignupDto>(), "Customer"))
+        _userServiceMock.Setup(s => s.CreateUser(It.IsAny<SignupDto>()))
             .ReturnsAsync(new UserDto { UserID = 1, UserName = "John" });
 
         // Act
