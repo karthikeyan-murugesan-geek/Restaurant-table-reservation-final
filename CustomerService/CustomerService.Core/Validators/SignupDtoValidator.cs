@@ -16,7 +16,7 @@ namespace CustomerService.Core.Validators
                 .WithMessage("Role must be Customer or Manager");
 
             RuleFor(x => x.MobileNumber)
-                .Matches(@"^[6-9]\d{9}$")
+                .Matches(@"^\+?[1-9]\d{7,14}$")
                 .When(x => !string.IsNullOrEmpty(x.MobileNumber))
                 .WithMessage("Invalid mobile number");
         }

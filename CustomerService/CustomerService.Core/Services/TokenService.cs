@@ -38,6 +38,8 @@ namespace CustomerService.Core.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new System.Security.Claims.ClaimsIdentity(claims),
+                Issuer = _appSettings.Jwt.Issuer,
+                Audience = _appSettings.Jwt.Audience,
                 Expires = expires,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -53,8 +55,8 @@ namespace CustomerService.Core.Services
             var validationParameters = new TokenValidationParameters
             {
                 RequireExpirationTime = true,
-                ValidateIssuer = false,
-                ValidateAudience = false,
+                ValidateIssuer = true,
+                ValidateAudience = true,
                 IssuerSigningKey = new SymmetricSecurityKey(key)
             };
             try

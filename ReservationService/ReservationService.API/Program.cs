@@ -81,10 +81,10 @@ builder.Services.AddAuthentication("Bearer")
         {
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(key),
-            ValidateIssuer = false,
-            ValidateAudience = false,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"]
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = builder.Configuration["Appsettings:Jwt:Issuer"],
+            ValidAudience = builder.Configuration["AppSettings:Jwt:Audience"]
         };
     });
 
