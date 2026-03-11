@@ -26,9 +26,6 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReservationService.DAL\ReservationService.DAL.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
     <ProjectReference Include="..\ReservationService.Core\ReservationService.Core.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

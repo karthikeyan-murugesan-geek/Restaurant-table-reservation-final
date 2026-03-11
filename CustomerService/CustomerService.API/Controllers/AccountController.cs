@@ -56,8 +56,8 @@ namespace CustomerService.API.Controllers
             return Ok(new { tokenResult.AccessToken, tokenResult.RefreshToken });
         }
 
-        [HttpGet("IsCustomerAsync/{userID}")]
-        public async Task<IActionResult> IsCustomerAsync(long userID)
+        [HttpGet("GetCustomer/{userID}")]
+        public async Task<IActionResult> GetCustomerAsync(long userID)
         {
             return Ok(await userService.IsCustomerAsync(userID));
         }

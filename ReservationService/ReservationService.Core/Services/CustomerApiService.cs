@@ -21,7 +21,7 @@ namespace ReservationService.Core.Services
 
         public async Task<bool> CustomerExists(long userID)
         {
-            var url = $"{apiSettings.CustomerService.BaseUrl}/api/Account/IsCustomerAsync/{userID}";
+            var url = $"{apiSettings.CustomerService.BaseUrl}/api/Account/GetCustomer/{userID}";
             
             var response = await httpClient.GetAsync(url);
 

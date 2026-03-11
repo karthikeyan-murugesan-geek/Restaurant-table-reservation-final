@@ -13,10 +13,6 @@ public class ReservationCreateDtoValidator : AbstractValidator<ReservationCreate
             .GreaterThan(0)
             .WithMessage("TableID is required");
 
-        RuleFor(x => x.ReservedByUserId)
-            .GreaterThan(0)
-            .WithMessage("ReservedByUserId is required");
-
         RuleFor(x => x.ReservationDate)
             .NotEmpty()
             .WithMessage("ReservationDate is required")
