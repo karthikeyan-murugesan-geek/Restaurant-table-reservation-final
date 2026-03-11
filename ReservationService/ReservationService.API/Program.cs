@@ -23,6 +23,7 @@ using Microsoft.Extensions.Logging;
 using ReservationService.Core.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -104,7 +105,12 @@ builder.Services.AddScoped<IReservationService, ReservationService.Services.Rese
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
 builder.Services.AddAutoMapper(typeof(ReservationProfile));
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("logs/log-.txt",
+        rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
+builder.Host.UseSerilog();
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {

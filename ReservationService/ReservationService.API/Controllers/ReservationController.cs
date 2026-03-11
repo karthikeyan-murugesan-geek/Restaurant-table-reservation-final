@@ -53,6 +53,7 @@ namespace ReservationService.API.Controllers
         [HttpPost("CreateReservation")]
         public async Task<IActionResult> CreateReservation([FromBody] ReservationCreateDto reservationmodel)
         {
+            throw new Exception("test exception");
             var result = await _reservationService.CreateReservationAsync(reservationmodel);
 
             return Ok(result);

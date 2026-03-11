@@ -407,6 +407,7 @@ ASALocalRun/
 bin/
 obj/
 .vs/
+log/
 *.user
 *.suo
 *.log
