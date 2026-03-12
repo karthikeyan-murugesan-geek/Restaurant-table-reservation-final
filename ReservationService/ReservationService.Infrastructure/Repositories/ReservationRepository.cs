@@ -45,7 +45,6 @@ namespace ReservationService.Infrastructure.Repositories
                 return null;
 
             existing.TableID = reservation.TableID;
-            existing.ReservedByUserID = reservation.ReservedByUserID;
             existing.ReservationDate = reservation.ReservationDate;
             existing.TimeSlot = reservation.TimeSlot;
             existing.GuestsCount = reservation.GuestsCount;

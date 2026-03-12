@@ -39,7 +39,7 @@ public class ReservationControllerTests
     [Fact]
     public async Task CreateReservation_ReturnsOk_WithCreatedReservation()
     {
-        
+        SetUser("Customer");
         var reservation = new ReservationCreateDto { ReservedByUserId = 1, TableID = 1, GuestsCount = 4 };
         var model = new ResponseDto<ReservationCreateDto>
         {
